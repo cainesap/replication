@@ -1,0 +1,472 @@
+read in parse prob scores and t/frag rates for each candidate#
+#args <- commandArgs(trailingOnly = TRUE)#
+#user <- args[1]#
+#user <- "apcaines"  # laptop#
+user <- "andrewcaines"  # desktop#
+# define vars and arrays#
+exam <- "EN304"#
+candidates <- c("S2BWWT9EVS", "S3R66XVRQ2", "S3TDNT9KYR", "S493GQ4PHW", "S4C2DDR4ZZ")#
+sections <- c('C_01', 'D_01', 'E_01', 'E_02', 'E_03', 'E_04', 'E_05')#
+# gather all stats, syntactic only#
+allStats <- data.frame()#
+for (candidate in candidates) {#
+	for (section in sections) {#
+		filein <- paste("/Users/", user, "/ALTA/BULATS/", exam, "/candidates/", candidate, "/", candidate, "_S", section, ".stats", sep="")#
+		stats <- read.delim(filein, header = T)#
+		subStats <- subset(stats, type == "syntactic")#
+		allStats <- rbind(allStats, subStats)#
+	}#
+}#
+# stats for each transcription mode, A 'as-is' first#
+stp <- "A"#
+subSect <- subset(allStats, step == stp)#
+mu <- round(mean(subSect$normed), 4)  # get mean parse prob score#
+succ <- round(mean(subSect$parseSuccess), 4)  # get parse success rate#
+delta <- 0#
+results <- data.frame(stp, mu, delta, succ)#
+baseMu <- mu  # use 'as-is' parse prob as baseline#
+totalWords <- sum(subSect$words)  # get total word count for corpus here#
+#print(paste("A", baseMu, "---", succ, sep=", "))#
+#
+# remaining steps#
+steps <- c('B', 'C', 'D', 'BC', 'BD', 'CD', 'BCD')#
+for (stp in steps) {#
+	subSect <- subset(allStats, step == stp)#
+	mu <- round(mean(subSect$normed), 4)  # get mean parse prob score#
+	succ <- round(mean(subSect$parseSuccess), 4)  # get parse success rate#
+	delta <- round(mu - baseMu, 4)#
+	lineout <- data.frame(stp, mu, delta, succ)#
+	results <- rbind(results, lineout)#
+#	print(paste(stp, mu, delta, succ, sep=", "))#
+}#
+colnames(results) <- c("mode", "µ", "∆", "¬T/frag")#
+print(results)#
+# total word count#
+#
+print(paste("total words: ", totalWords))
+candidates <- c("S2BWWT9EVS", "S3R66XVRQ2", "S3TDNT9KYR", "S493GQ4PHW", "S4C2DDR4ZZ")#
+#
+# desktop#
+#user <- "andrewcaines"#
+# laptop#
+user <- "apcaines"#
+#
+prefix <- "ALTA/BULATS"#
+#
+allTags <- data.frame()#
+for (candidate in candidates) {#
+	filein <- paste("/Users/", user, "/", prefix, "/EN304/candidates/", candidate, "/", candidate, "_as-is_filled-pause-pos-tags.txt", sep="")#
+	tags <- read.delim(filein)#
+	allTags <- rbind(allTags, tags)#
+}#
+#
+# tabulate tokens and tags#
+addmargins(xtabs(~ token + pos, data = allTags))
+desktop#
+user <- "andrewcaines"#
+# laptop#
+#user <- "apcaines"#
+#
+prefix <- "ALTA/BULATS"#
+#
+allTags <- data.frame()#
+for (candidate in candidates) {#
+	filein <- paste("/Users/", user, "/", prefix, "/EN304/candidates/", candidate, "/", candidate, "_as-is_filled-pause-pos-tags.txt", sep="")#
+	tags <- read.delim(filein)#
+	allTags <- rbind(allTags, tags)#
+}#
+#
+# tabulate tokens and tags#
+addmargins(xtabs(~ token + pos, data = allTags))
+disf <- 1+1+12+9+9+12+2+2+4+26+35+1+7+6+7+3+22+22+10+14+3+9+9+36+28+3+1+3+4+8+7; disf
+disf <- 1+1+12+9+9+12+2+2+4+26+35+1+7+6+7+3+22+22+10+14+3+9+9+36+28+3+1+3+4+8+7; disf / 2262
+disf <- 1+1+12+9+9+12+2+2+4+26+35+1+7+6+7+3+22+22+10+14+3+9+9+36+28+3+1+3+4+8+7; (disf / 2262) * 100
+form <- 7+11+4+1+3+1+10+8+7+2+17+3+1+4+3+8+5+6+7+1+1+1+12+12+2+3+1+2;form; (form / 2262) * 100
+idiom <- 1+1+6+7+1+2+2+5+4+1+5+5+1+5+1+2+5+1+4+5+6; idiom; (idiom / 2262) * 100
+316+143+70
+(529/2262) * 100
+install.packages('shinyapps')
+devtools::install_github('rstudio/shinyapps')
+library(devtools)
+install.packages('devtools')
+library(devtools)
+devtools::install_github('rstudio/shinyapps')
+library(shinyapps)
+shinyapps::setAccountInfo(name='cainesap', token='8116B27409074D8320892DBE6CDF0E99', secret='q2fAUjGE8zndqNjUP8DXfNL3JkXjYEhYloGKosYr')
+install.packages('shiny')
+install.packages('languageR')
+list <- c("a", "b", "c")
+print(list)
+list
+unlist(list)
+paste("this is a", list)
+paste("this is a", unlist(list))
+paste("this is a", as.string(list))
+cat(list)
+paste("this is a", cat(list))
+listed <- cat(list)
+paste("this is a", listed)
+listed
+paste("this is a", lapply(list, print))
+unlist(list)
+unl <- unlist(list)
+unl
+paste("this is a", unl)
+foreach(list) print(x)
+foreach(list) print()
+foreach(list) print
+foreach(list) { print}
+print(unlist(list))
+text <- print(unlist(list))
+text
+text <- unlist(list)
+text
+paste("this is a", text)
+list
+ls <- c('a', 'b', 'c')
+ls <- append(ls, 'c')
+ls
+which(ls, "c")
+?which
+which(ls == "c")
+length(which(ls == "c"))
+n <- length(which(ls == "c"))
+if (n > 1) { print "ack"}
+n
+if (n > 1) print(ack)
+if (n > 1) print("ack")
+pwd
+cwd
+filename <- "Corpora/BULATS/pilot/flvOriginals/EN304-Nahal/S3F6AKMFU6_SA_03.flv"
+file.exists(filename)
+if (file.exists(filename)) { print("ack")}
+devtools::install_github("rstudio/rmarkdown")
+install.packages('pandoc')
+library(pandoc)
+library('mgcv')
+dset <- 'pilot'#
+exam <- 'EN304'#
+# load data#
+filein <- paste("~/Dropbox/workspace/gitHub/ALTA/spoken-language/Analysis/annotationCounts_", dset, "_", exam,".txt", sep="")#
+annotCounts <- read.delim(filein)#
+# convert to per 100 word rates, on *tokens* affected#
+annotCounts$rate <- (annotCounts$tokens / annotCounts$wordCount) * 100
+head(annotcounts)
+head(annotCounts)
+summary(annotCounts)
+?table
+head(subset(annotCounts, tagclass == unique(annotCounts$tagclass)))
+head(subset(annotCounts, tagclass == unique(annotCounts$tagclass)[1]))
+head(subset(annotCounts, tagclass == unique(annotCounts$tagclass)[2]))
+head(subset(annotCounts, tagclass == unique(annotCounts$tagclass)[3]))
+for (tagclass in unique(annotCounts$tagclass)){}
+for (tagclass in unique(annotCounts$tagclass)){
+subs <- subset(annotCounts, tagclass == tagclass)
+print(sum(subs$instances))
+print(sum(subs$tokens))
+print(tagclass)
+}
+str(annotCounts)
+nrow(annotCounts)
+nrow(subset(annotCounts, tagclass == "formal"))
+sum(subset(annotCounts, tagclass == "formal"))$instances)
+sum(subset(annotCounts, tagclass == "formal")$instances)
+sum(annotCounts$instances)
+for (tagclass in unique(annotCounts$tagclass)){
+for (tc in unique(annotCounts$tagclass)){
+subs <- subset(annotCounts, tagclass == tc)
+print(tc)
+print(sum(subs$instances))
+}
+annotTable <- data.frame()#
+for (tc in unique(annotCounts$tagclass)){#
+  subs <- subset(annotCounts, tagclass == tc)#
+  inst <- sum(subs$instances)#
+  toks <- sum(subs$tokens)#
+  rate <- (toks / corpusSize) *	100#
+  addline <- data.frame(tc, inst, toks,	rate)#
+  annotTable <-	rbind(annotTable, addline)#
+}#
+colnames(annotTable) <- c("tagclass", "instances", "tokens_affected", "rate_per100words")
+corpusSize <- 5025
+annotTable <- data.frame()#
+for (tc in unique(annotCounts$tagclass)){#
+  subs <- subset(annotCounts, tagclass == tc)#
+  inst <- sum(subs$instances)#
+  toks <- sum(subs$tokens)#
+  rate <- (toks / corpusSize) *	100#
+  addline <- data.frame(tc, inst, toks,	rate)#
+  annotTable <-	rbind(annotTable, addline)#
+}#
+colnames(annotTable) <- c("tagclass", "instances", "tokens_affected", "rate_per100words")
+annotTable
+annotTable <- data.frame()#
+tagclasses <- c('disfluency', 'formal', 'idiomatic')#
+for (tc in tagclasses){#
+  subs <- subset(annotCounts, tagclass == tc)#
+  inst <- sum(subs$instances)#
+  toks <- sum(subs$tokens)#
+  rate <- (toks / corpusSize) *	100#
+  addline <- data.frame(tc, inst, toks,	rate)#
+  annotTable <-	rbind(annotTable, addline)#
+}#
+colnames(annotTable) <- c("tagclass", "instances", "tokens_affected", "rate_per100words")
+annotTable
+?facet_wrap
+dset <- 'pilot'
+exam <- "EN304"
+user <- "andrewcaines"
+candList <- paste("/Users/", user, "/Dropbox/Corpora/BULATS/", dset, "/", exam, "/processedCandidates.txt", sep="")#
+candidates <- readLines(candList)#
+#
+# list of sections#
+sections <- c('C_01', 'D_01', 'E_01', 'E_02', 'E_03', 'E_04', 'E_05')#
+# run thru each transcript and calculate pauses for each segment#
+allPauses <- data.frame()#
+for (candidate in candidates) {#
+    # get candidate CEFR level#
+    candstats <- paste("/Users/", user, "/Corpora/BULATS/", dset, "/", exam, "/candidates/", candidate, "/", candidate, ".candstats", sep="")#
+    candstats <- read.delim(candstats, header = T)#
+    cefr <- candstats$cefr[1]#
+    grade <- candstats$ovrlGrade[1]#
+    for (section in sections) {#
+    	candsect <- paste(candidate, "_", section, sep="")#
+		filein <- paste("/Users/", user, "/Corpora/BULATS/", dset, "/", exam, "/candidates/", candidate, "/", candidate, "_S", section, "_prosodic-pauses.csv", sep="")#
+		if (file.exists(filein)) {#
+	   		pauses <- read.csv(filein, header = T)#
+	   		if (nrow(pauses) > 0) {#
+	       		pauses$candsect <- candsect#
+	       		pauses$cefr <- cefr#
+	       		pauses$grade <- grade#
+	       		allPauses <- rbind(allPauses, pauses)#
+	   		} else {#
+	       		print(paste("zero pauses found for ", candidate, "_S", section, sep=""))#
+	   		}#
+		} else { print(paste("no pauses.csv file for ", candidate, "_S", section, sep=""))#
+		}#
+    }#
+}#
+#str(allPauses); head(allPauses)#
+# make histogram#
+bins <- 0.01#
+lower <- 0.3#
+upper <- 1#
+ticks <- 0.05
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(fill = ..count..)) + scale_fill_gradient("Count", low = "green", high = "red") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(fill = ..density..)) + scale_fill_gradient("Count", low = "green", high = "red") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density..)) + scale_fill_gradient("Count", low = "green", high = "red") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = 0.5*..density..)) + scale_fill_gradient("Count", low = "green", high = "red") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = 0.5*..density..))
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density..))
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density..)) + facet_wrap(~ cefr, ncol = 1)
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density..)) + facet_wrap(~ cefr, ncol = 1)  + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density..)) + facet_wrap(~ cefr, ncol = 1) + scale_fill_gradient("Count", low = "green", high = "red") + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density..)) + facet_wrap(~ cefr, ncol = 1) + scale_fill_discrete("Count", low = "green", high = "red") + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density..)) + facet_wrap(~ cefr, ncol = 1) + scale_fill_continuous("Count", low = "green", high = "red") + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density..)) + facet_wrap(~ cefr, ncol = 1) + scale_fill_discrete("Count") + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+?scale_fill_discrete
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density.., fill = ..density..)) + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density.., fill = ..density..)) + scale_fill_brewer() + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density.., fill = ..density..)) + scale_colour_brewer() + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density.., fill = ..density..)) + scale_colour_brewer(pal = "RdPu") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density.., fill = ..density..)) + scale_colour_brewer(palette = "RdPu") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density.., fill = ..density..)) + scale_colour_brewer(palette = "PuRd") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density.., fill = ..density..)) + scale_fill_brewer(palette = "PuRd") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density.., fill = factor(..density..))) + scale_fill_brewer(palette = "PuRd") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density.., fill =..density..)) + scale_fill_gradient() + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density.., fill =..density..)) + scale_fill_gradient(low = "green", high = "red") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density.., fill = ..density..)) + scale_fill_gradient("proportions", low = "#f03b20", high = "#ffeda0") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density.., fill = candidate)) + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("no.segments") + theme_bw()
+dirpath <- "Dropbox/workspace/gitHub/ALTA/spoken-language"
+sections <- c('C_01', 'D_01', 'E_01', 'E_02', 'E_03', 'E_04', 'E_05')#
+# gather data#
+allScores <- data.frame()#
+for (candidate in candidates) {#
+	# get candidate CEFR level#
+	candstats <- paste("/Users/", user, "/Corpora/BULATS/", dset, "/", exam, "/candidates/", candidate, "/", candidate, ".candstats", sep="")#
+	candstats <- read.delim(candstats, header = T)#
+	cefr <- candstats$cefr[1]#
+#
+	# gather .stats files for each recording#
+	for (section in sections) {#
+		filein <- paste("/Users/", user, "/Corpora/BULATS/", dset, "/", exam, "/candidates/", candidate, "/", candidate, "_S", section, ".stats", sep="")#
+		if (file.exists(filein)) {#
+		   scores <- read.delim(filein, skip = 0, header = T)#
+		   scores$cefr <- cefr#
+		   allScores <- rbind(allScores, scores)#
+		}#
+		else { print(paste("no .stats file for ", candidate, "_S", section, sep="")) }#
+	}#
+}#
+#
+# syntactic stats only#
+synScores <- subset(allScores, type == "syntactic")#
+## t-test of A (as-is) and BCD (entirely cleaned up)#
+A <- subset(synScores, step == "A")#
+BCD <- subset(synScores, step == "BCD")#
+t.test(A$normed, BCD$normed)#
+#
+## t-test of CEFR B2 and C1#
+B2 <- subset(synScores, cefr == "B2")#
+C1 <- subset(synScores, cefr == "C1")#
+t.test(B2$normed, C1$normed)#
+# order for x-axis#
+steps <- c('A', 'B', 'C', 'D', 'BC', 'BD', 'CD', 'BCD')#
+allScores$step <- factor(allScores$step, levels = steps)#
+synScores$step <- factor(synScores$step, levels = steps)#
+# pdf plots for publication#
+themepdf <- theme(legend.position = 'none', text = element_text(size = 10, family = "Times"), title = element_text(vjust = 0.5), axis.title = element_text(vjust = 0.1))#
+#
+# all candidates, facet syntactic vs prosodic#
+plotall <- ggplot(data = allScores, aes(x = step, y = normed, fill = step)) + geom_boxplot() + facet_wrap(~ type) + scale_y_continuous("parse likelihood (normalised for word length)", limits = c(-6, 0)) + scale_x_discrete("transcription mode", labels = steps) #
+#
+# facetted candidates, syntactic scores only#
+plotfacet <- ggplot(data = synScores, aes(x = step, y = normed, fill = step)) + geom_boxplot() + facet_wrap(cefr ~ candidate, nrow = 3, ncol = 6) + scale_y_continuous("parse likelihood (normalised for word length)", limits = c(-6, 0)) + scale_x_discrete("transcription mode", labels = steps)
+plotfacet
+ggplot(data = synScores, aes(x = step, y = normed, fill = step)) + geom_boxplot() + facet_wrap(cefr ~ candidate, nrow = 3, ncol = 6)
+ggplot(data = synScores, aes(x = step, y = normed, fill = step)) + geom_boxplot() + facet_wrap(~ cefr + candidate, nrow = 3, ncol = 6)
+ggplot(data = synScores, aes(x = step, y = normed, fill = step)) + geom_boxplot() + facet_wrap(~ cefr + candidate, nrow = 3)
+cefrs <- c('B1, 'B2', 'C1')
+cefrs <- c('B1', 'B2', 'C1')
+head(allScores)
+allScores$cefr <- factor(cefrs)
+allScores$cefr <- factor(allScores$cefr, levels = cefrs)
+ggplot(data = synScores, aes(x = step, y = normed, fill = step)) + geom_boxplot() + facet_wrap(~ cefr + candidate, nrow = 3)
+?stat_density
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..density.., fill = ..density..)) + scale_fill_gradient("proportions", low = "#f03b20", high = "#ffeda0") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..scaled.., fill = ..scaled..)) + scale_fill_gradient("proportions", low = "#f03b20", high = "#ffeda0") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = count(pauseDur) / nrow(allPauses), fill = ..scaled..)) + scale_fill_gradient("proportions", low = "#f03b20", high = "#ffeda0") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..count.. / nrow(allPauses), fill = ..scaled..)) + scale_fill_gradient("proportions", low = "#f03b20", high = "#ffeda0") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("segments") + theme_bw()
+ps <- nrow(allPauses)
+ps
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = ..count.. / ps, fill = ..scaled..)) + scale_fill_gradient("proportions", low = "#f03b20", high = "#ffeda0") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("segments") + theme_bw()
+ggplot(data = allPauses, aes(x = pauseDur)) + geom_histogram(binwidth = bins, aes(y = (..count..) / ps, fill = ..scaled..)) + scale_fill_gradient("proportions", low = "#f03b20", high = "#ffeda0") + facet_wrap(~ cefr, ncol = 1) + scale_x_continuous("pause length (sec.)", limits = c(lower, upper), breaks = seq(from = lower, to = upper, by = ticks), labels = seq(from = lower, to = upper, by = ticks)) + scale_y_continuous("segments") + theme_bw()
+ps
+?write
+?read
+?read.list
+?read.file
+?read.lines
+wcfile <- paste("/Users/", user, "/Dropbox/workspace/gitHub/ALTA/spoken-language/Analysis/latestTotalWordCount.txt", sep="")#
+corpusSize <- read.delim(wcfile, header=F)
+corpusSize
+corpusSize[1,1]
+100 / corpusSize[1,1]
+filein <- paste("~/Dropbox/workspace/gitHub/ALTA/spoken-language/Analysis/annotationCounts_", dset, "_", exam,".txt", sep="")#
+annotCounts <- read.delim(filein)#
+#
+# convert to per 100 word rates, on *tokens* affected#
+annotCounts$rate <- (annotCounts$tokens / annotCounts$wordCount) * 100#
+## MAKE TABLE#
+annottypeTable <- data.frame()#
+tagclasses <- c('disfluency', 'formal', 'idiomatic')#
+for (tc in tagclasses){#
+  subs <- subset(annotCounts, tagclass == tc)#
+  inst <- sum(subs$instances)#
+  toks <- sum(subs$tokens)#
+  rate <- (toks / corpusSize[1,1]) * 100#
+  addline <- data.frame(tc, inst, toks, rate)#
+  annottypeTable <- rbind(annottypeTable, addline)#
+}#
+colnames(annottypeTable) <- c("tagclass", "instances", "tokens_affected", "rate_per100words")
+head(annotTable)
+head(annottypeTable)
+head(annotCounts)
+lm <- stat_smooth(method = "lm", formula = y ~ x + I(x^2), size = 1, se = FALSE, colour = "#FA7DE7")  # pink#
+loess <- stat_smooth(method = "loess", formula = y ~ x, size = 1, se = FALSE, colour = "#BD64CD")  # purple#
+gam <- stat_smooth(method = "gam", formula = y ~ s(x), size = 1, se = FALSE, colour = "#7ECD64")  # green#
+#
+# overall facet plot#
+annotoverallplot <- ggplot(annotCounts, aes(x = wordCount, y = rate, colour = tagclass)) + geom_point(aes(size = 3)) + scale_colour_manual(values = c("#76C4EE", "#D94423", "#E8C048")) + scale_x_continuous("document length (words)") + scale_y_continuous("per 100\#
+ words (free scales)") + theme_bw() + theme(legend.position = 'none', text = element_text(size = 18), title = element_text(vjust = 0.5), axis.title = element_text(vjust = 0.1)) + facet_wrap(~ tagclass, ncol = 3, scales = "free")#
+#
+# subset plots#
+annotdisfplot <- ggplot(subset(annotCounts, tagclass == "disfluency"), aes(x = wordCount, y = rate)) + geom_point(aes(size = 3), colour = "#76C4EE") + scale_x_continuous("document length (words)") + scale_y_continuous("per 100 words") + theme_bw() + theme(legen\#
+d.position = 'none', text = element_text(size = 18), title = element_text(vjust = 0.5), axis.title = element_text(vjust = 0.1)) + facet_wrap(~ tagclass + cefr)
+ggplot(subset(annotCounts, tagclass == "formal"), aes(x = wordCount, y = rate)) + geom_point(aes(size = 3), colour = "#D94423") + scale_x_continuous("document length (words)") + scale_y_continuous("per 100 words", limits = c()) + theme_bw() + theme(legend.position = 'none', text = element_text(size = 18), title = element_text(vjust = 0.5), axis.title = element_text(vjust = 0.1)) + facet_wrap(~ tagclass + cefr)
+ggplot(subset(annotCounts[annotCounts$rate < 50], tagclass == "formal"), aes(x = wordCount, y = rate)) + geom_point(aes(size = 3), colour = "#D94423") + scale_x_continuous("document length (words)") + scale_y_continuous("per 100 words", limits = c()) + theme_bw() + theme(legend.position = 'none', text = element_text(size = 18), title = element_text(vjust = 0.5), axis.title = element_text(vjust = 0.1)) + facet_wrap(~ tagclass + cefr)
+ggplot(subset(annotCounts[annotCounts$rate < 50, ], tagclass == "formal"), aes(x = wordCount, y = rate)) + geom_point(aes(size = 3), colour = "#D94423") + scale_x_continuous("document length (words)") + scale_y_continuous("per 100 words", limits = c()) + theme_bw() + theme(legend.position = 'none', text = element_text(size = 18), title = element_text(vjust = 0.5), axis.title = element_text(vjust = 0.1)) + facet_wrap(~ tagclass + cefr)
+str(mtcars)
+str(Fruits)
+library(googleVis)
+str(Fruits)
+Fruits
+str(crimes)
+str(crime)
+library(ggmap)
+str(crime)
+murder <- subset(crime, offense == "murder")
+str(murder)
+motion <- gvisMotionChart(murder, idvar = "offense", timevar = "time")
+murder$time <- as.date(murder$time)
+murder$time <- as.Date(murder$time)
+str(murder)
+motion <- gvisMotionChart(murder, idvar = "offense", timevar = "time")
+motion <- gvisMotionChart(murder, idvar = "address", timevar = "time")
+plot(motion)
+Fruits
+str(crime$time)
+tail(crime$time)
+head(crime$time)
+length(unique(crime$time)))
+length(unique(crime$time))
+?table
+for (day in unique(crime$day)) {
+for (D in unique(crime$day)) {
+subs <- subset(crime, day == D)
+length(unique(crime$offense))
+unique(crime$offense)
+for (D in unique(crime$day)) {
+subs <- subset(crime, day == D)
+for (O in unique(crime$offense)){
+count <- nrow(subset(subs, offense == O))
+print(paste(D, O, count))
+} }
+Fruis
+Fruits
+str(crime)
+install.packages('datasets')
+head(AirPassengers)
+str(AirPassengers)
+str(airmiles)
+str(airquality)
+str(sleep)
+str(women)
+str(WorldPhones)
+str(WWWusage)
+str(VADeaths)
+install.packages('tm')
+install.packages('Rcmdr')
+install.packages('rmarkdown')
+setwd('~/Dropbox/workspace/gitHub/replication')
+rmarkdown::render('html_doc.Rmd')
+library(rmarkdown)
+rmarkdown::render('html_doc.Rmd')
+rmarkdown::render('html_doc.Rmd')
+rmarkdown::render('html_doc.Rmd')
+rmarkdown::render('html_doc.Rmd')
+rmarkdown::render('html_doc.Rmd')
+rmarkdown::render('html_doc.Rmd')
+rmarkdown::render('html_doc.Rmd')
+rmarkdown::render('html_doc.Rmd')
+rmarkdown::render('html_doc.Rmd')
+rmarkdown::render('html_doc.Rmd')
+rmarkdown::render('html_doc.Rmd')
+rmarkdown::render('html_doc.Rmd')
+rmarkdown::render('html_doc.Rmd')
+rmarkdown::render('html_doc.Rmd')
+download.file('http://www.let.rug.nl/wieling/statscourse/lecture1/lab/answers/lab-including-answers.Rmd', 'lab-including-answers.Rmd')#
+library(rmarkdown)#
+render('lab-including-answers.Rmd') # generates html file with results#
+browseURL(paste('file://', file.path(getwd(),'lab-including-answers.html'), sep='')) # shows result
+install.packages('lme4')
+install.packages('car')
+install.packages('boot')
+install.packages('multcomp')
+install.packages('rmarkdown')
+download.file('http://www.let.rug.nl/wieling/statscourse/lecture1/lab/answers/lab-including-answers.Rmd', 'lab-including-answers.Rmd')#
+library(rmarkdown)#
+render('lab-including-answers.Rmd') # generates html file with results#
+browseURL(paste('file://', file.path(getwd(),'lab-including-answers.html'), sep='')) # shows result
+rmarkdown::render('shiny_doc.Rmd')
+rmarkdown::run('shiny_doc.Rmd')

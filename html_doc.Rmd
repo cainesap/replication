@@ -46,7 +46,7 @@ You can embed LaTeX equations using '$'-signs: $E=mc^2$
 ## Render your document
 
 - With 'knit' (Ctrl+Shift+K) in RStudio...
-- Or `rmarkdown::render('filename.Rmd')` in R.
+- Or `rmarkdown::render('filepath/filename.Rmd')` in R Console.
 
 
 ## Remote collaboration
