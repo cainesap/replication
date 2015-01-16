@@ -1,6 +1,9 @@
-## Replication: 'How to make your own work reproducible'
+## Replication Workshop 2014/5: 'How to make your own work reproducible'
 ### Andrew Caines, University of Cambridge
 ====
+
+- Guest lecture, 19 January 2015
+- For course information, see [Nicole Janz's replication page](http://schreiberin.de/teaching/replication.html)
 
 #### _contents_
 - slides.Rmd, slides.pdf, slides.tex: source and outputs of Beamer presentation;
