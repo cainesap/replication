@@ -27,6 +27,7 @@
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
 \IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage{url}
 \usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -60,8 +61,8 @@
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \setcounter{secnumdepth}{0}
 
-\title{How to make your own work reproducible: R Markdown}
-\author{Andrew Caines, Dept. Theoretical \& Applied Linguistics}
+\title{How to make your own work reproducible}
+\author{Andrew Caines \textbar{} DTAL, UCAM \textbar{} apc38}
 \date{19 January 2015}
 
 \begin{document}
@@ -188,7 +189,7 @@ calculated accordingly.
 
 \begin{block}{embedded computation}
 
-\includegraphics{images/markdownOverview.png}
+\includegraphics{images/markdownChunk.png}
 
 \end{block}
 
@@ -199,12 +200,48 @@ calculated accordingly.
 \begin{itemize}[<+->]
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  paper packages
+  example 1:
+  \href{https://github.com/cainesap/replication/blob/master/slides.Rmd}{Beamer
+  presentation}
+\item
+  example 2: \href{}{html output}
+\item
+  example 3: \href{}{interactive documents with Shiny}
+\item
+  example 4:
+  \href{http://openscience.uni-leipzig.de/index.php/mr2/article/view/41}{paper
+  packages}
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}{End}
+
+\begin{block}{useful links}
+
+\begin{quote}
+\href{http://rmarkdown.rstudio.com/}{RStudio: R Markdown}
+\href{http://arxiv.org/abs/1501.01613}{Udwin \& Baumer arXiv.org paper}
+\href{http://shiny.rstudio.com/articles/rmarkdown.html}{Shiny \& R
+Markdown} \href{https://github.com/cainesap/replication}{my GitHub
+`replication' repo}
+\end{quote}
+
+\end{block}
+
+\begin{block}{contact me}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  apc38
+\item
+  \href{http://apc38.user.srcf.net/}{my website}
+\item
+  {[}@cainesap{]}(\url{https://twitter.com/cainesap})
+\end{itemize}
+
+\end{block}
 
 \end{frame}
 
