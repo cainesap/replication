@@ -1,8 +1,8 @@
 ## R Markdown: 'How to make your own work reproducible'
-### Andrew Caines, University of Cambridge
 ====
 
-- Guest lecture, 19 January 2015, Replication Workshop 2014/5, Social Sciences Research Methods Centre
+- Andrew Caines, ALTA Institute / Dept. Theoretical & Applied Linguistics, U.Cambridge
+- Guest lecture, 19 January 2015, Replication Workshop 2014/5, Social Sciences Research Methods Centre, U.Cambridge
 - For course information, see [Nicole Janz's replication page](http://schreiberin.de/teaching/replication.html)
 
 #### _contents_
