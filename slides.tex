@@ -1,0 +1,211 @@
+\documentclass[ignorenonframetext,]{beamer}
+\usetheme{AnnArbor}
+\usecolortheme{dolphin}
+\usefonttheme{structurebold}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{:}
+\setbeamercolor{caption name}{fg=normal text.fg}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\usepackage{lmodern}
+\ifxetex
+  \usepackage{fontspec,xltxtra,xunicode}
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\else
+  \ifluatex
+    \usepackage{fontspec}
+    \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+    \newcommand{\euro}{€}
+  \else
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+      \fi
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight0.8\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% Comment these out if you don't want a slide with just the
+% part/section/subsection/subsubsection title:
+\AtBeginPart{
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \let\insertsectionnumber\relax
+  \let\sectionname\relax
+  \frame{\sectionpage}
+}
+\AtBeginSubsection{
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+\title{How to make your own work reproducible: R Markdown}
+\author{Andrew Caines, Dept. Theoretical \& Applied Linguistics}
+\date{19 January 2015}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+\begin{frame}{Overview}
+
+\begin{itemize}[<+->]
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  define R Markdown
+\item
+  using R Markdown
+\item
+  relevance to Replication
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{What is R Markdown?}
+
+\begin{itemize}[<+->]
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  source file / output file paradigm (cp LaTeX, HTML, markdown)
+\item
+  plain text file (.Rmd), rendered by R
+\item
+  \textbf{simple syntax}: shallow learning curve
+\item
+  \textbf{human-readable}: emphasis on communication and clarity, rather
+  than technique and complexity
+\item
+  \textbf{transparent formatting}: wysiwyg
+\item
+  \textbf{embedded computation}: share with collaborators, reviewers,
+  colleagues, students, critics
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{What is R Markdown?}
+
+\begin{quote}
+\ldots{} integrating source code, statistical output, and text in R
+Markdown is \textbf{a model of reproducibility}.
+\end{quote}
+
+\begin{quote}
+Such transparency facilitates comprehension, defensibility, and further
+research or testing.
+\end{quote}
+
+\begin{quote}
+R Markdown helps to bring the vision for reproducibility in statistical
+analysis articulated by Gentleman \& Temple Lang {[}2004{]} to reality.
+\end{quote}
+
+\begin{itemize}[<+->]
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \href{http://arxiv.org/abs/1501.01613}{Udwin \& Baumer 2015, `R
+  Markdown', arXiv.org}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{What is R Markdown?}
+
+\begin{quote}
+This vision --- in which the barriers to verify another's statistical
+computations from start to finish are low --- is the intellectual
+descendant of Claerbout {[}1994{]}, Buckheit \& Donoho {[}1995{]}, and
+began with Knuth {[}1984{]}, the creator of TEX.
+\end{quote}
+
+\begin{quote}
+Moreover, R Markdown is dynamic: each time the document is rendered, the
+commands therein are run anew. If data are altered or different data are
+called in advance of rendering, then the output is dependent and
+calculated accordingly.
+\end{quote}
+
+\begin{itemize}[<+->]
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \href{http://arxiv.org/abs/1501.01613}{Udwin \& Baumer 2015, `R
+  Markdown', arXiv.org}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{How to use R Markdown}
+
+\begin{block}{installation}
+
+\begin{itemize}[<+->]
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \texttt{install.packages(\textquotesingle{}rmarkdown\textquotesingle{})}
+\item
+  \texttt{library(rmarkdown)}
+\end{itemize}
+
+\end{block}
+
+\end{frame}
+
+\begin{frame}{How to use R Markdown}
+
+\begin{block}{simple syntax, human-readable, transparent formatting}
+
+\includegraphics{images/markdownOverview.png}
+
+\end{block}
+
+\end{frame}
+
+\begin{frame}{How to use R Markdown}
+
+\begin{block}{embedded computation}
+
+\includegraphics{images/markdownOverview.png}
+
+\end{block}
+
+\end{frame}
+
+\begin{frame}{R Markdown and Reproducibility}
+
+\begin{itemize}[<+->]
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  paper packages
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{End}
+
+\end{frame}
+
+\end{document}
