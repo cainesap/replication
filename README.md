@@ -1,8 +1,8 @@
-## Replication Workshop 2014/5: 'How to make your own work reproducible'
+## R Markdown: 'How to make your own work reproducible'
 ### Andrew Caines, University of Cambridge
 ====
 
-- Guest lecture, 19 January 2015
+- Guest lecture, 19 January 2015, Replication Workshop 2014/5, Social Sciences Research Methods Centre
 - For course information, see [Nicole Janz's replication page](http://schreiberin.de/teaching/replication.html)
 
 #### _contents_
