@@ -38,9 +38,10 @@ ggplot(mtcars, aes(x = mpg, fill = factor(cyl))) + geom_dotplot(stackgroups = TR
 ```
 
 
-## Embedding equations
+## Embedding HTML and LaTeX
 
-You can embed LaTeX equations using '$'-signs: $E=mc^2$
+- If you know it, you can use HTML syntax freely: `<img src="filepath" alt="alt text" style="width:400px;height:400px">`
+- You can embed LaTeX equations using '$'-signs: $E=mc^2$
 
 
 ## Render your document
