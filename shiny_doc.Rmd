@@ -5,7 +5,7 @@ output: html_document
 ---
 
 - launch in RStudio via 'Run Document';
-- or using `render::run('filepath/filename.Rmd')` in R Console.
+- or using `rmarkdown::run('filepath/filename.Rmd')` in R Console.
 
 
 ### A Shiny 'widget' and a reactive plot

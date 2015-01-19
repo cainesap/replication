@@ -59,12 +59,12 @@ output:
 
 # How to use R Markdown
 ## simple syntax, human-readable, transparent formatting
-![markdown basics](images/markdownOverview.png)
+![markdown formatting overview](images/markdownOverview.png)
 
 
 # How to use R Markdown
 ## embedded computation
-![markdown basics](images/markdownChunk.png)
+![markdown R code chunks](images/markdownChunk.png)
 
 
 # R Markdown and Reproducibility
