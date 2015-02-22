@@ -15,6 +15,8 @@ runApp()  # from same directory as ui.R and server.R; will open in browser
   - install `shinyapps` package and connect to your account ([instructions here](http://shiny.rstudio.com/articles/shinyapps.html))
   - deploy app:
 
-    library(shinyapps)
-    deployApp()  # will open in browser, by default with url: http://<yourusername>.shinyapps.io/<yourdirectoryname>
-    #terminateApp('<nameOfApp>')  # if/when you want to take the app down
+```
+library(shinyapps)
+deployApp()  # will open in browser, by default with url: http://<yourusername>.shinyapps.io/<yourdirectoryname>
+#terminateApp('<nameOfApp>')  # if/when you want to take the app down
+```
