@@ -4,9 +4,11 @@
 * ui.R and server.R required (see [Shiny website]())
 * to run locally, do as follows:
 
-    install.packages('shiny')  # if necessary
-    library(shiny)
-    runApp()  # from same directory as ui.R and server.R; will open in browser
+```
+install.packages('shiny')  # if necessary
+library(shiny)
+runApp()  # from same directory as ui.R and server.R; will open in browser
+```
 
 * to deploy to the Shinyapps.io platform:
   - register at http://www.shinyapps.io
