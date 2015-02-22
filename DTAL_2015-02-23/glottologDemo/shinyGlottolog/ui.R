@@ -19,11 +19,8 @@ shinyUI(fluidPage(
   fluidRow(
     column(3, offset = 1,
       wellPanel(
-        downloadButton('downloadData', 'download this data')
-      )
-    ),
-    column(4, offset = 1,
-      wellPanel(
+        downloadButton('downloadData', 'download this data'),
+	br(),
         span(tags$a(href="https://github.com/cainesap/replication/tree/master/DTAL_2015-02-23/glottologDemo/shinyGlottolog", "view the code"))
       )
     )
