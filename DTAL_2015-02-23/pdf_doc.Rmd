@@ -1,0 +1,55 @@
+---
+title: "R Markdown PDF output demo"
+author: Andrew Caines | DTAL, UCAM | apc38
+date: 23 February 2015
+output:
+  pdf_document:
+    highlight: tango
+---
+
+
+## Inline R code
+
+Beware of counting your chickens: `1 + 1` does not always equal `r 1 + 1`!
+
+
+## R code chunks
+
+#### echo=T, eval=F
+```{r, eval=FALSE}
+summary(cars)
+```
+
+#### echo=T, eval=T (default)
+```{r}
+str(cars)
+head(cars)
+summary(cars)
+```
+
+```{r}
+plot(cars)
+```
+
+#### echo=F, eval=T
+```{r, echo=FALSE}
+ggplot(mtcars, aes(x = mpg, fill = factor(cyl))) + geom_dotplot(stackgroups = TRUE, binwidth = 1, method = "histodot")
+```
+
+
+## Embedding HTML and LaTeX
+
+- If you know it, you can use HTML syntax freely: `<img src="filepath" alt="alt text" style="width:400px;height:400px">`
+- You can embed LaTeX equations using '$'-signs: $E=mc^2$
+
+
+## Render your document
+
+- With 'knit' (Ctrl+Shift+K) in RStudio...
+- Or `rmarkdown::render('filepath/filename.Rmd')` in R Console.
+
+
+## Remote collaboration
+
+- [Wieling e.g. Rmd](http://www.let.rug.nl/~wieling/statscourse/lecture1/lab/answers/lab-including-answers.Rmd)
+- [Wieling e.g. HTML](http://www.let.rug.nl/~wieling/statscourse/lecture1/lab/answers/lab-including-answers.html)
