@@ -7,7 +7,6 @@ output:
     theme: "AnnArbor"
     colortheme: "dolphin"
     fonttheme: "structurebold"
-    keep_tex: true
     incremental: true
 ---
 
@@ -110,9 +109,9 @@ output:
 
 
 # R Markdown and Reproducibility
-- example 1: [Beamer presentation](https://github.com/cainesap/replication/blob/master/slides.Rmd)
-- example 2: [HTML output demo](https://raw.githubusercontent.com/cainesap/replication/master/html_doc.Rmd)
-- example 3: [PDF output demo](https://raw.githubusercontent.com/cainesap/replication/master/shiny_doc.Rmd)
+- example 1: [Beamer presentation](https://raw.githubusercontent.com/cainesap/replication/master/DTAL_2015-02-23/slides.Rmd)
+- example 2: [HTML output demo](https://raw.githubusercontent.com/cainesap/replication/master/DTAL_2015-02-23/html_doc.Rmd)
+- example 3: [PDF output demo](https://raw.githubusercontent.com/cainesap/replication/master/DTAL_2015-02-23/pdf_doc.Rmd)
   - _n.b._ [Tufte handouts](http://rmarkdown.rstudio.com/tufte_handout_format.html)
 
 # R Markdown: some useful links
