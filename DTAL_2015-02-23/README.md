@@ -6,7 +6,8 @@
 
 
 #### _contents_
-- slides.Rmd, slides.pdf, slides.tex: source and outputs of Beamer presentation;
+- glottologDemo: Plotly and Shiny demonstrations of research dissemination using Glottolog data;
 - html_doc.Rmd, html_doc.html: source and output of HTML example;
-- glottologDemo: Plotly and Shiny demonstrations of research dissemination using Glottolog data
-- renderRmd.R: Rscript to render above .Rmd files in their appropriate formats.
+- pdf_doc.Rmd, pdf_doc.pdf: source and output of PDF example;
+- renderRmd.R: Rscript to render .Rmd files in their appropriate formats;
+- slides.Rmd, slides.pdf: source and output of Beamer presentation.
