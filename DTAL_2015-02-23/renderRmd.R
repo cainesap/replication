@@ -4,5 +4,7 @@
 ## load package
 library(rmarkdown)
 
-## process rmarkdown source file
+## process rmarkdown source files
 rmarkdown::render('slides.Rmd')
+rmarkdown::render('html_doc.Rmd')
+rmarkdown::render('pdf_doc.Rmd')
