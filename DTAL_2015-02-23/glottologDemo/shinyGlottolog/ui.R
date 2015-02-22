@@ -22,9 +22,9 @@ shinyUI(fluidPage(
         downloadButton('downloadData', 'download this data')
       )
     ),
-    column(3, offset = 1,
+    column(4, offset = 1,
       wellPanel(
-        span(tags$a(href="", "view the code"))
+        span(tags$a(href="https://github.com/cainesap/replication/tree/master/DTAL_2015-02-23/glottologDemo/shinyGlottolog", "view the code"))
       )
     )
   )
