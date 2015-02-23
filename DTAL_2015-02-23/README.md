@@ -6,8 +6,9 @@
 
 
 #### _contents_
-- glottologDemo: Plotly and Shiny demonstrations of research dissemination using Glottolog data;
-- html_doc.Rmd, html_doc.html: source and output of HTML example;
-- pdf_doc.Rmd, pdf_doc.pdf: source and output of PDF example;
-- renderRmd.R: Rscript to render .Rmd files in their appropriate formats;
-- slides.Rmd, slides.pdf: source and output of Beamer presentation.
+- `glottologDemo`: Plotly and Shiny demonstrations of research dissemination using Glottolog data;
+- `html_doc.Rmd, html_doc.html`: source and output of HTML example;
+- `pdf_doc.Rmd, pdf_doc.pdf`: source and output of PDF example;
+- `renderRmd.R`: Rscript to render .Rmd files in their appropriate formats;
+- `slides.Rmd, slides.pdf`: source and output of Beamer presentation;
+- `wieling`: R Markdown example from [Martijn Wieling's statistics course](http://www.let.rug.nl/~wieling/statscourse/)
