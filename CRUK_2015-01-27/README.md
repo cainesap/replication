@@ -1,4 +1,4 @@
-# CRUK Reproducible Research Workshop
+#### CRUK Reproducible Research Workshop
 ====
 
 _27 November 2015_
