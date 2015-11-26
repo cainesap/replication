@@ -1,0 +1,79 @@
+---
+title: "Rmarkdown for Reproducible Research"
+author: Andrew Caines | Linguistics, Cambridge | apc38
+date: 27 November 2015
+output:
+  beamer_presentation:
+    theme: "AnnArbor"
+    colortheme: "seahorse"
+    fonttheme: "serif"
+    keep_tex: true
+    incremental: true
+---
+
+
+# What is R Markdown?
+- source file / output file paradigm (cp LaTeX, HTML, markdown)
+- plain text file (.Rmd), rendered by R
+- markdown = plain-text authoring syntax, increasingly popular (e.g. GitHub)
+- R Markdown = implementation of markdown, can take R code chunks
+- uses `knitr` package (successor to `Sweave`) and 'Pandoc' text file conversion program
+- can produce HTML, PDF and Word documents
+- maintained by R Studio, now R Markdown v2
+
+
+# What is R Markdown?
+- **simple syntax**: shallow learning curve
+- **human-readable**: emphasis on communication and clarity, rather than technique and complexity
+- **transparent formatting**: wysiwyg
+- **embedded computation**: share with collaborators, reviewers, colleagues, students, critics
+
+
+# What is R Markdown?
+>  ... integrating source code, statistical output, and text in R Markdown is **a model of reproducibility**.
+
+> Such transparency facilitates comprehension, defensibility, and further research or testing.
+
+> R Markdown helps to bring the vision for reproducibility in statistical analysis articulated by Gentleman & Temple Lang [2004] to reality.
+
+* [Baumer & Udwin 2015, 'R Markdown', _WIRES: Computational Statistics_](http://onlinelibrary.wiley.com/doi/10.1002/wics.1348/abstract)
+
+
+# How to use R Markdown
+## installation
+-  `install.packages('rmarkdown')`
+- `library(rmarkdown)`
+
+
+# How to use R Markdown
+## simple syntax, human-readable, transparent formatting
+![markdown formatting overview](images/markdownOverview.png)
+
+
+# How to use R Markdown
+## embedded computation
+![markdown R code chunks](images/markdownChunk.png)
+
+
+# R Markdown and Reproducibility
+- User experience?
+- disappointing :-/
+- Computational linguistics >(open) Linguistics
+- culture of Shared Tasks, for example
+- Current project: proprietary data + 4p paper + no shared code + authors moved on
+- Martijn Wieling's statistics course: 
+[Rmd](http://www.let.rug.nl/~wieling/statscourse/lecture3/lab/answers/lab-including-answers.Rmd),
+[HTML](http://www.let.rug.nl/~wieling/statscourse/lecture3/lab/answers/lab-including-answers.html)
+
+
+# End
+## useful links
+> - [RStudio: R Markdown](http://rmarkdown.rstudio.com/)
+> - [Udwin & Baumer arXiv.org paper (= WIRES paper)](http://arxiv.org/abs/1501.01613)
+> - [Shiny & R Markdown](http://shiny.rstudio.com/articles/interactive-docs.html)
+> - [my GitHub 'replication' repo](https://github.com/cainesap/replication)
+
+## contact me
+> - apc38
+> - [my website](http://apc38.user.srcf.net/)
+> - [@cainesap](https://twitter.com/cainesap)
